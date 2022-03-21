@@ -1,0 +1,113 @@
+@mixin button() {
+    background-color: #000;
+    color: var(--color-primary);
+    border-radius: 25px;
+    border: none;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    min-width: 120px;
+
+    &:hover {
+        background-color: #2c2c2c;
+    }
+}
+
+@mixin point() {
+    height: 80px;
+    width: 80px;
+    background-color: var(--color-third-light);
+    border: solid 1px var(--color-secondary-dark);
+    border-radius: 10px;
+    @include flex(column, center, center);
+}
+
+@mixin ellipsis() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin border-radius($value) {
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    border-radius: $value;
+}
+
+@mixin flex($direction:null, $alignItems:null, $justifyContent:null) {
+    display: flex;
+
+    @if $direction {
+        flex-direction: $direction;
+    }
+
+    @if $alignItems {
+        align-items: $alignItems;
+    }
+
+    @if $justifyContent {
+        justify-content: $justifyContent;
+    }
+}
+
+@mixin transition($value) {
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -o-transition: $value;
+    transition: $value;
+}
+
+@mixin toastAnimation() {
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+// @-webkit-keyframes fadein {
+//     from {
+//         top: 0;
+//         opacity: 0;
+//     }
+
+//     to {
+//         top: 30px;
+//         opacity: 1;
+//     }
+// }
+
+
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+
+    to {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+// @-webkit-keyframes fadeout {
+//     from {
+//         top: 30px;
+//         opacity: 1;
+//     }
+
+//     to {
+//         top: 0;
+//         opacity: 0;
+//     }
+// }
+
+@keyframes fadeout {
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}

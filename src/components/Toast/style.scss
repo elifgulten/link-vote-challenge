@@ -1,0 +1,41 @@
+@import "../../assets/styles/_mixins.scss";
+
+.toast {
+    @include flex(row, center, center);
+    @include border-radius(6px);
+    visibility: visible;
+    left: calc((100% - 300px) / 2);
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 30px;
+    padding: 10px 20px;
+
+    &.success {
+        color: var(--color-success);
+        background-color: var(--color-success-dark);
+        border: solid 1px var(--color-success-light);
+    }
+
+    &.error {
+        color: var(--color-error);
+        background-color: var(--color-error-dark);
+        border: solid 1px var(--color-error-light);
+    }
+
+    &.vissible {
+        @include toastAnimation();
+        visibility: visible;
+    }
+
+    span {
+        &:first-of-type {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        &+span {
+            margin-left: 10px;
+        }
+    }
+}

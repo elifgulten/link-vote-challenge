@@ -1,0 +1,17 @@
+@import "../../assets/styles/_mixins.scss";
+
+.layout {
+  @include flex(column, center);
+
+
+  .header {
+    @include flex(row, center, space-between);
+    width: calc(100% - 40px);
+    border-bottom: solid 2px #a0a0a0;
+    margin: 20px;
+  }
+
+  .content {
+    width: 400px;
+  }
+}

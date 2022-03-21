@@ -1,0 +1,42 @@
+@import "../../assets/styles/_mixins.scss";
+
+.pagination {
+    @include flex(row, center, center);
+    margin-bottom: 20px;
+
+    >*:hover {
+
+        cursor: pointer;
+    }
+
+    svg {
+        width: 10px;
+
+        &:first-of-type {
+            margin-right: 30px;
+        }
+
+        &:last-of-type {
+            margin-left: 30px;
+        }
+    }
+
+    ul {
+        display: flex;
+
+        li {
+            @include flex(row, center, center);
+            color: var(--color-secondary);
+            font-weight: 700;
+            height: 20px;
+            width: 20px;
+            border: solid 1px transparent;
+            margin: 0 5px;
+
+            &:hover,
+            &.active {
+                border: solid 1px var(--color-secondary-dark);
+            }
+        }
+    }
+}

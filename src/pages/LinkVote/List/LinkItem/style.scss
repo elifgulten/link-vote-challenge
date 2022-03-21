@@ -1,0 +1,108 @@
+@import "../../../../assets/styles/_mixins.scss";
+
+.link-item {
+  @include border-radius(6px);
+  color: var(--color-primary-dark);
+  display: flex;
+  padding: 8px;
+  border: solid 1px transparent;
+  position: relative;
+
+  &:hover {
+    background-color: var(--color-primary-light);
+    border: solid 1px var(--color-third);
+    cursor: pointer;
+
+    .delete {
+      display: flex;
+    }
+  }
+
+  &+.link-item {
+    margin-top: 20px;
+  }
+
+  .points {
+    @include point();
+    color: var(--color-secondary);
+
+    span {
+
+      &:first-of-type {
+        font-weight: 700;
+        font-size: 29px;
+      }
+
+      &+span {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .detail {
+    @include flex(column, $justifyContent: space-between);
+    margin-left: 20px;
+
+    .info {
+      @include flex(column);
+
+      .title,
+      .link {
+        @include ellipsis;
+        width: 275px;
+      }
+
+      .title {
+        color: var(--color-secondary);
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .link {
+        color: var(--color-secondary-light);
+        font-weight: 300;
+      }
+    }
+
+    .action-group {
+      @include flex($justifyContent: space-between);
+      margin-bottom: 5px;
+
+      .action {
+        @include flex($alignItems: center);
+
+        svg {
+          height: 15px;
+          color: var(--color-secondary-light);
+
+          &+span {
+            padding-left: 10px;
+          }
+        }
+
+        span {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--color-secondary-light);
+        }
+      }
+    }
+  }
+
+  .delete {
+    @include flex(row, center, center);
+    @include border-radius(50%);
+    position: absolute;
+    background-color: var(--color-error-darker);
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    top: -15px;
+    display: none;
+
+    svg {
+      width: 20px;
+      color: var(--color-primary);
+    }
+  }
+}

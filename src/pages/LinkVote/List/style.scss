@@ -1,0 +1,44 @@
+@import "../../../assets/styles/_mixins.scss";
+
+.list-page {
+  .submit {
+    @include flex(row, center);
+    @include border-radius(6px);
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    padding: 8px;
+    border: solid 1px var(--color-third);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .icon {
+      @include point();
+
+      svg {
+        font-size: 30px;
+        color: var(--color-secondary);
+      }
+
+      &+span {
+        margin-left: 20px;
+        text-transform: uppercase;
+        color: var(--color-secondary);
+        letter-spacing: 0.4px;
+        font-size: 20px;
+      }
+    }
+
+  }
+
+  hr {
+    border-top: solid 2px var(--color-third);
+    margin: 20px 0;
+  }
+
+  .items {
+    margin: 20px 0;
+  }
+
+}
